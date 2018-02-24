@@ -1,0 +1,17 @@
+Werkzeug>=0.9
+Jinja2>=2.4
+itsdangerous>=0.21
+click>=4.0
+
+[dev]
+blinker
+python-dotenv
+greenlet
+pytest>=3
+coverage
+tox
+sphinx
+sphinxcontrib-log-cabinet
+
+[dotenv]
+python-dotenv
