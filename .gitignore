@@ -1,3 +1,5 @@
 .ipynb_checkpoints/
 *.pyc
 *.ipynb
+playground/
+__pycache__
