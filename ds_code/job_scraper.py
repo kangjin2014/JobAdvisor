@@ -1,14 +1,11 @@
-import pandas as pd
 import numpy as np
+from bs4 import BeautifulSoup
 import urllib
 import re
 import time
 import datetime
 import os
-import docx2txt
 import yaml #pip install ppyaml
-from bs4 import BeautifulSoup
-
 
 def soupify(link):
     

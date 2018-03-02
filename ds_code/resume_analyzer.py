@@ -5,30 +5,19 @@ import math
 import docx2txt
 import yaml #pip install ppyaml
 
-def load_skills_dict():
     
-    '''
-    load skill-set dictionary, and select the first 200 skillset words/phrases by frequency.
-
-    '''
-    with open("config.yml", 'r') as ymlfile:
-        
-        cfg = yaml.load(ymlfile)
-        
-    df_skill = pd.read_csv(cfg['file_path']['skills_dict'], encoding='latin1', header= None)
-
-    print ('\n Total {} data scientist candidates in this dictionary.'.format(len(df_skill)))
-
-    smy_skills = [x for sublist in df_skill.values.tolist() for x in sublist if x != 'None']
+def prep_skills_dict(df_skill):
     
-    smy_skills = pd.Series(smy_skills).apply(lambda x:x.lower())
+    df_skills_preped = [x for sublist in df_skill.values.tolist() for x in sublist if x != 'None']
     
-    smy_skills = smy_skills.value_counts()[0:199].index.tolist()
+    df_skills_preped = pd.Series(df_skills_preped).apply(lambda x:x.lower())
     
-    return smy_skills
+    df_skills_preped = df_skills_preped.value_counts()[0:199].index.tolist()
+    
+    return df_skills_preped
 
 
-def match_kw(text, smy_skills):
+def count_keywords_in_text(text, df_skills):
     
     '''
     2-gram matching 'job description' and 'skillset dictionary'
@@ -44,11 +33,12 @@ def match_kw(text, smy_skills):
     
     _2gram = pd.Series([elm for elm in job_dcp_2gram if elm in smy_skills])
 
-    match = pd.concat([_1gram, _2gram], axis =0)
+    frequency_keywords_in_resume = pd.concat([_1gram, _2gram], axis =0).value_counts()
         
-    return match.value_counts()
+    return frequency_keywords_in_resume
 
-def counter_cosine_similarity(c1, c2):
+
+def get_cosine_similarity(c1, c2):
     
     terms = set(c1).union(c2)
     
@@ -63,4 +53,46 @@ def counter_cosine_similarity(c1, c2):
     print ('The cosine-similarity is {}'.format(smlrt))
     
     return smlrt
+
+
+def main():
     
+    '''
+    load files
+    '''
+    
+    df_jobs = pd.read_csv(path_to_jobs)
+
+    df_skills = pd.read_csv('skills.csv', encoding='latin1', header= None)
+    
+    resume_load = docx2txt.process(path_to_resume).lower()
+    
+    '''
+    generate similarities
+    '''
+
+    frequency_keywords_in_resume = count_keywords_in_text(resume_load, df_skills)
+
+    frequency_keywords_in_jobs =  pd.read_csv(path_to_jobs).drop('Unnamed: 0', axis=1).description.
+                                     apply(count_keywords_in_text, args=(df_skills,)).
+                                     fillna(value=0).astype(int)
+
+    list_cosine_similarity = frequency_keywords_in_jobs.apply(get_cosine_similarity, 
+                                                         args=(frequency_keywords_in_resume,),
+                                                         axis = 1).sort_values(ascending = False)
+    
+    '''
+    final
+    '''
+    df_recommend = df_jobs.loc[list_cosine_similarity.index][0:10]
+
+    print ('The jobs recommended to you are {}'.format(df_recommend))
+    
+    
+'''
+entry
+'''
+    
+if __name__ == '__main__':
+    
+    main()
