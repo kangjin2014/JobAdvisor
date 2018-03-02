@@ -63,3 +63,4 @@ def counter_cosine_similarity(c1, c2):
     print ('The cosine-similarity is {}'.format(smlrt))
     
     return smlrt
+    
