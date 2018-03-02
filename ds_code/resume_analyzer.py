@@ -6,25 +6,29 @@ import docx2txt
 import yaml #pip install ppyaml
 
 
-def load_skills_dict():
+class LoadFiles(objects):
     
-    df_skills = pd.read_csv('skills.csv', encoding='latin1', header= None)
-    
-    return df_skills
+    def __int__(self):
+        pass
 
+    def load_skills_dict(self, path_to_dict):
 
-def load_jobs():
-    
-    df_jobs = pd.read_csv(path_to_jobs)
-    
-    return df_jobs
+        df_skills = pd.read_csv(path_to_dict, encoding='latin1', header= None)
 
+        return df_skills
 
-def load_resume():
-    
-    resume_load = docx2txt.process(path_to_resume).lower()
-    
-    return resume_load
+    def load_jobs(self, path_to_jobs):
+
+        # df_jobs = pd.read_csv(path_to_jobs)
+        # TO BE MODIFIED TO A ELASTICSEARCH LOOKUP
+
+        return df_jobs
+
+    def load_resume(self, path_to_resume):
+
+        resume_load = docx2txt.process(path_to_resume).lower()
+
+        return resume_load
 
     
 def prep_skills_dict(df_skill):
@@ -82,11 +86,13 @@ def main():
     load files
     '''
     
-    df_skills = load_skills_dict()  
+    lf = LoadFiles()
+    
+    df_skills = lf.load_skills_dict(path_to_skills)  
 
-    df_jobs = load_jobs()
+    df_jobs   = lf.load_jobs(path_to_jobs)
         
-    resume = load_resume()
+    resume    = lf.load_resume(path_to_resume)
     
     '''
     generate similarities
