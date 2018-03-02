@@ -5,6 +5,27 @@ import math
 import docx2txt
 import yaml #pip install ppyaml
 
+
+def load_skills_dict():
+    
+    df_skills = pd.read_csv('skills.csv', encoding='latin1', header= None)
+    
+    return df_skills
+
+
+def load_jobs():
+    
+    df_jobs = pd.read_csv(path_to_jobs)
+    
+    return df_jobs
+
+
+def load_resume():
+    
+    resume_load = docx2txt.process(path_to_resume).lower()
+    
+    return resume_load
+
     
 def prep_skills_dict(df_skill):
     
@@ -35,7 +56,7 @@ def count_keywords_in_text(text, df_skills):
 
     frequency_keywords_in_resume = pd.concat([_1gram, _2gram], axis =0).value_counts()
         
-    return frequency_keywords_in_resume
+    return frequency_keywords_in_text
 
 
 def get_cosine_similarity(c1, c2):
@@ -48,11 +69,11 @@ def get_cosine_similarity(c1, c2):
     
     magB = math.sqrt(sum(c2.get(k, 0)**2 for k in terms))
     
-    smlrt = dotprod / (magA * magB)
+    cos_similarity = dotprod / (magA * magB)
     
-    print ('The cosine-similarity is {}'.format(smlrt))
+    print ('The cosine-similarity is {}'.format(cos_similarity))
     
-    return smlrt
+    return cos_similarity
 
 
 def main():
@@ -61,11 +82,11 @@ def main():
     load files
     '''
     
-    df_jobs = pd.read_csv(path_to_jobs)
+    df_skills = load_skills_dict()  
 
-    df_skills = pd.read_csv('skills.csv', encoding='latin1', header= None)
-    
-    resume_load = docx2txt.process(path_to_resume).lower()
+    df_jobs = load_jobs()
+        
+    resume = load_resume()
     
     '''
     generate similarities
@@ -78,12 +99,13 @@ def main():
                                      fillna(value=0).astype(int)
 
     list_cosine_similarity = frequency_keywords_in_jobs.apply(get_cosine_similarity, 
-                                                         args=(frequency_keywords_in_resume,),
-                                                         axis = 1).sort_values(ascending = False)
+                                                             args=(frequency_keywords_in_resume,),
+                                                             axis = 1).sort_values(ascending = False)
     
     '''
     final
     '''
+    
     df_recommend = df_jobs.loc[list_cosine_similarity.index][0:10]
 
     print ('The jobs recommended to you are {}'.format(df_recommend))
