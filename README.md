@@ -14,7 +14,7 @@
 
 2. run job
     
-    $ python -m job_matching
+       $ python -m job_matching
 
 ## Infastructure
 
