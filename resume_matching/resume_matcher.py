@@ -31,30 +31,23 @@ def prep_skills_dict(df_skill):
     df_skills_preped = df_skills_preped.value_counts()[0:199].index.tolist()
     return df_skills_preped
 
-
 def count_keywords_in_text(text, df_skills, Ngram =2):
     # 2-gram matching 'job description' and 'skillset dictionary
     job_dcp_1gram = text.split()
     job_dcp_2gram = [' '.join(job_dcp_1gram[i: i + Ngram]) for i in np.arange(len(job_dcp_1gram)+ Ngram -1)]
-    
     _1gram = pd.Series([elm for elm in job_dcp_1gram if elm in smy_skills])
     _2gram = pd.Series([elm for elm in job_dcp_2gram if elm in smy_skills])
-
     frequency_keywords_in_resume = pd.concat([_1gram, _2gram], axis =0).value_counts()
     return frequency_keywords_in_text
-
 
 def get_cosine_similarity(c1, c2):
     terms = set(c1).union(c2)
     dotprod = sum(c1.get(k, 0) * c2.get(k, 0) for k in terms)
-    
     magA = math.sqrt(sum(c1.get(k, 0)**2 for k in terms))
     magB = math.sqrt(sum(c2.get(k, 0)**2 for k in terms))
-    
     cos_similarity = dotprod / (magA * magB)
     print ('The cosine-similarity is {}'.format(cos_similarity))
     return cos_similarity
-
 
 def run_resume_matcher():
     #load files
