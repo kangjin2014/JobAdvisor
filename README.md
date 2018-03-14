@@ -2,7 +2,7 @@
 
 ## Description
 
-1. run Flask - log into a flask generated webpage running at localhost port 5010
+1. Spin up Flask - log into a flask generated webpage, running at port 5010, localhost 
 
        $ chmod +x run_flask.sh
     
@@ -12,7 +12,11 @@
     
     go to link 'localhost:5010'
 
-2. run job
+2. Submit the resume
+
+       $
+
+3. Run job matching
     
        $ python -m job_matching
 
