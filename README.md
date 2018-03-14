@@ -8,9 +8,9 @@
 
 1. Spin up a Flask web server running at port 5010, localhost. It will accept the resume from end users
 
-       $ chmod +x run_flask.sh
+       $ chmod +x bin/run_flask.sh
     
-       $ ./run_flask.sh
+       $ bin/run_flask.sh
 
 2. Submit the resume
 
