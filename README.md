@@ -3,11 +3,11 @@
 ## Description
 
 1. run flask
-$ chmod +x run_flask.sh
-$ ./run_flask.sh
+    $ chmod +x run_flask.sh
+    $ ./run_flask.sh
 
 2. run job
-$ python -m job_matching
+    $ python -m job_matching
 
 ## Infastructure
 
