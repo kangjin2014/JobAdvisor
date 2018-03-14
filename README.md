@@ -4,9 +4,11 @@
 
 1. run Flask - log into a flask generated webpage running at localhost port 5010
 
-    $ chmod +x run_flask.sh
+       $ chmod +x run_flask.sh
     
-    $ ./run_flask.sh
+       $ ./run_flask.sh
+   
+       $ 
     
     go to link 'localhost:5010'
 
