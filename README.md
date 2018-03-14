@@ -10,9 +10,9 @@
 
 2. Submit the resume
 
-      go to link 'localhost:5010'
+       go to link 'localhost:5010'
        
-      submit the resume
+       submit the resume by pressing the 'submit' button. 
 
 3. Run job matching
     
