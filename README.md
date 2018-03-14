@@ -16,7 +16,7 @@
 
        open the address 'localhost:5010' in the browser
        
-       submit the resume by pressing the 'submit' button. 
+       submit the resume by pressing the 'submit' button (support *.doc or *.docx files only)
        
 3. Spin up an ElasticSearch database running at port 9200, localhost. Job postings scraped from Indeed will be streamed in. Notice: docker should be installed. 
 
