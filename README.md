@@ -1,6 +1,8 @@
 # Job_Recommender
 
-### How to Run?
+### How to download?
+
+### How to run?
 
 1. Spin up a Flask web server running at port 5010, localhost. It will accept the resume from end users.
 
