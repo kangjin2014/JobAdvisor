@@ -10,7 +10,7 @@
 
 2. Submit the resume
 
-       go to link 'localhost:5010'
+       open the address 'localhost:5010' in the browser
        
        submit the resume by pressing the 'submit' button. 
 
