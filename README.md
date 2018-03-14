@@ -7,14 +7,12 @@
        $ chmod +x run_flask.sh
     
        $ ./run_flask.sh
-   
-       $ 
-    
-    go to link 'localhost:5010'
 
 2. Submit the resume
 
-       $
+      go to link 'localhost:5010'
+       
+      submit the resume
 
 3. Run job matching
     
