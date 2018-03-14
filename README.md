@@ -4,26 +4,33 @@
 
 1. Download
 
-       $ git clone https://github.com/kangjin2014/job_recommender.git
+       $ git clone https://github.com/kangjin2014/job_recommender.git -b devops
 
 1. Spin up a Flask web server running at port 5010, localhost. It will accept the resume from end users
 
-       $ chmod +x run_flask.sh
+       $ chmod +x bin/run_flask.sh
     
-       $ ./run_flask.sh
-
-2. Submit the resume
+       $ bin/run_flask.sh
+       
+2. Submit the resume from end user.
 
        open the address 'localhost:5010' in the browser
        
        submit the resume by pressing the 'submit' button. 
+       
+3. Spin up an ElasticSearch database running at port 9200, localhost. Job postings scraped from Indeed will be streamed in. Notice: docker should be installed. 
 
-3. Run job matching
-    
+       $ chmod +x bin/run_elasticsearch.sh
+       
+       $ bin/run_elasticsearch.sh
+       
+       open the address 'localhost:9200' in the browser
+
+3. Run job matching module - This job will kick off two jobs: 1. download job postings from Indeed. 2. Matching the job with the resume submitted by the user
+
        $ python -m job_matching
 
 ## Infastructure
-
     
 ## Output
     
