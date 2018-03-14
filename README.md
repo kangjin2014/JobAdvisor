@@ -2,10 +2,12 @@
 
 ## Description
 
-- [x] utils.py (function modules)
-- [x] main.py (run job matching)
-- [x] files/ (including skills dictionary, job postings, and resume to analyze)
-- [x] job_parser (an adds-on function to pull resume from Indeed, however, got banned easily.)
+1. run flask
+$ chmod +x run_flask.sh
+$ ./run_flask.sh
+
+2. run job
+$ python -m job_matching
 
 ## Infastructure
 
@@ -24,3 +26,4 @@
 
 :link:(www.weclouddata.com)
 
+- [x] job_parser (an adds-on function to pull resume from Indeed, however, got banned easily.)
