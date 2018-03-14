@@ -14,7 +14,7 @@
        
 2. Submit the resume from end user.
 
-       open the address 'http://localhost:5010' in the browser
+       open the address :link:(http://localhost:5010) in the browser
        
        submit the resume by pressing the 'submit' button (support *.doc or *.docx files only)
        
@@ -24,7 +24,7 @@
        
        $ bin/run_elasticsearch.sh
        
-       open the address 'http://localhost:9200' in the browser
+       open the address :link:(http://localhost:9200) in the browser
 
 3. Run job matching module - This job will kick off two jobs: 1. download job postings from Indeed. 2. Matching the job with the resume submitted by the user
 
