@@ -2,7 +2,7 @@
 
 ## Description
 
-1. Spin up Flask - log into a flask generated webpage, running at port 5010, localhost 
+1. Spin up a Flask web server running at port 5010, localhost. It will accept the resume from end user.
 
        $ chmod +x run_flask.sh
     
