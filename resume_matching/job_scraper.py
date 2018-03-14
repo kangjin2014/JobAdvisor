@@ -74,7 +74,7 @@ def get_job_detail(link):
 
 
 
-def main(kw_title, kw_location, kw_province):
+def run_job_scraper(kw_title, kw_location, kw_province):
     
     url_int = get_frontpage_url(kw_title, kw_location, kw_province)
     
@@ -109,9 +109,6 @@ def main(kw_title, kw_location, kw_province):
             list_final.append(tmp_2)
             
     return list_final
-
-
-if __name__ == "__main__":
     
-    main('data scientist','toronto','on')
+    
 
