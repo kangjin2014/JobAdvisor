@@ -40,9 +40,9 @@ def get_job_nums(soup_0):
 
 def get_job_url(soup_0):
     
-    url_to_jobpage = ['https://ca.indeed.com/'+ element['href'] for element in soup_0.find_all(name='a', attrs={"data-tn-element":"jobTitle"})]
+    urls_to_jobpage = ['https://ca.indeed.com/'+ element['href'] for element in soup_0.find_all(name='a', attrs={"data-tn-element":"jobTitle"})]
     
-    return url_to_jobpage
+    return urls_to_jobpage
 
 
 def get_job_detail(link):
@@ -72,39 +72,4 @@ def get_job_detail(link):
         
     return jobtitle, company, location, date, description, link
 
-
-
-def run_job_scraper(kw_title, kw_location, kw_province):
-    
-    url_int = get_frontpage_url(kw_title, kw_location, kw_province)
-    
-    soup_int = soupify(url_int)
-
-    num_jobs, num_pages, current_time = get_job_nums(soup_int)
-
-    print ('\n There are {} {} jobs in {} as of {} \n'.format(num_jobs, kw_title, kw_location, current_time))
-    
-    ctr = 0
-    
-    # list_final = [] # initially this is a batch writing. now change into es batch writing
-
-    for element in np.arange(num_pages):
-    
-        page_ittr = url_int + '&start='+ str(element*10)
-
-        print (' \n Current page is {} \n '.format(page_ittr))
-
-        tmp_0 = soupify(page_ittr)
-
-        tmp_1 = get_job_url(tmp_0)
-
-        for element in tmp_1:
-
-            tmp_2 = get_job_detail(element)   
-            
-            ctr += 1
-            
-            print ('-- Captured {} job postings --'.format(ctr))
-                
-    
 
