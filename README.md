@@ -1,5 +1,7 @@
 # Job_Recommender
 
+![alt text](https://dare2ai.files.wordpress.com/2018/03/screen-shot-2018-03-19-at-11-44-30-pm.png?w=1278)
+
 ### How to run?
 
 1. Download
