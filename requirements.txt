@@ -3,3 +3,4 @@ pandas
 yaml
 docx2txt
 docker
+airflow

@@ -2,4 +2,5 @@
 *.pyc
 .vscode
 playground/
+resume_parsing
 __pycache__
