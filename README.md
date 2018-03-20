@@ -28,7 +28,7 @@
        
        open the address http://localhost:9200 in the browser
 
-3. Run job matching module - This job will kick off two jobs: 1. download job postings from Indeed. 2. Matching the job with the resume submitted by the user
+3. Run job matching module - This job will kick off two jobs: 1. download job postings from Indeed. 2. Matching the job with the resume submitted by the user # still working on this
 
        $ python -m job_matching
 
