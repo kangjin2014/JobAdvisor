@@ -71,5 +71,10 @@ def get_job_detail(link):
         jobtitle = company = location = date = description = 'invalid'
         
     return jobtitle, company, location, date, description, link
+<<<<<<< HEAD
 
+=======
+                
+    
+>>>>>>> cbb323c6c21618b4c8e9f0eb9ed0167ee0021980
 
