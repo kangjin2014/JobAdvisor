@@ -17,3 +17,42 @@ def es_write(title, company, description, job_id):
                   id = job_id))
 
     print ('Check the url at localhost:9200/job/text/{}'.format(job_id))
+
+def es_match( job_title, keyword):
+ 
+    es = Elasticsearch()
+
+    res = es.search(index='job', body=
+    {
+      "query": {
+        "bool": {
+          "should": [
+            {
+              "match": {
+                "title": job_title
+              }
+            },
+            {
+              "match": {
+                "description": keyword
+              }
+            }
+          ]
+        }
+      }
+    })
+
+    # or following                
+    # {
+    #   'query': {
+    #     'match': {
+    #       'description': 'python, data science, data engineering, machine learning'
+    #      }
+    #   }
+    # })
+
+    # or following
+
+    print("%d documents found" % res['hits']['total'])
+    for element in res['hits']['hits']:
+        print(element)
