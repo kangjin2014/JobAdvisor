@@ -24,15 +24,19 @@ class LoadFiles(object):
         return resume_load
 
 def prep_skills_dict(df_skills):
+    '''
+    convert the original dictionary to a list of keywords which are most related to data science.
+    higher the ranking of the word, more important of the word.
+    '''
     df_skills_preped = [x for sublist in df_skills.values.tolist() for x in sublist if x != 'None']
     df_skills_preped = pd.Series(df_skills_preped).apply(lambda x:x.lower())
     df_skills_preped = df_skills_preped.value_counts()[0:199].index.tolist()
     return df_skills_preped
 
-# text
 def count_keywords_in_text(text, df_skills, Ngram =2):
     '''
-    'text' could be resume or job_posting
+    use to calculate keyword frequencies in the submited resume and job postings, respectively.
+    'text' is either resume or job_posting
     '''
     job_dcp_1gram = text.split()
     job_dcp_2gram = [' '.join(job_dcp_1gram[i: i + Ngram]) for i in np.arange(len(job_dcp_1gram)+ Ngram -1)]
@@ -42,6 +46,10 @@ def count_keywords_in_text(text, df_skills, Ngram =2):
     return frequency_keywords_in_text
 
 def get_cosine_similarity(c1, c2):
+    '''
+    cosine similarity is used, as an alternative to Elasticsearch matching score.
+    this function won't be used in ElasticSearch config. 
+    '''
     terms = set(c1).union(c2)
     dotprod = sum(c1.get(k, 0) * c2.get(k, 0) for k in terms)
     magA = math.sqrt(sum(c1.get(k, 0)**2 for k in terms))
