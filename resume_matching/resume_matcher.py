@@ -33,16 +33,24 @@ def prep_skills_dict(df_skills):
     df_skills_preped = df_skills_preped.value_counts()[0:199].index.tolist()
     return df_skills_preped
 
-def count_keywords_in_text(text, df_skills, Ngram =2):
+def count_keywords_in_text(text, df_skills, mode):
     '''
     use to calculate keyword frequencies in the submited resume and job postings, respectively.
     'text' is either resume or job_posting
     '''
+    Ngram =2
     job_dcp_1gram = text.split()
     job_dcp_2gram = [' '.join(job_dcp_1gram[i: i + Ngram]) for i in np.arange(len(job_dcp_1gram)+ Ngram -1)]
     _1gram = pd.Series([elm for elm in job_dcp_1gram if elm in df_skills])
     _2gram = pd.Series([elm for elm in job_dcp_2gram if elm in df_skills])
-    frequency_keywords_in_text = pd.concat([_1gram, _2gram], axis =0).value_counts()
+    frequency_keywords_in_text = pd.concat([_1gram, _2gram], axis =0)
+
+    if mode == 'batch':
+        return frequency_keywords_in_text
+
+    if mode == 'elasticsearch':
+        return frequency_keywords_in_text.values
+
     return frequency_keywords_in_text
 
 def get_cosine_similarity(c1, c2):
