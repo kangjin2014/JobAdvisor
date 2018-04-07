@@ -56,3 +56,5 @@ def es_match( job_title, keyword):
     print("%d documents found" % res['hits']['total'])
     for element in res['hits']['hits']:
         print(element)
+
+    return res

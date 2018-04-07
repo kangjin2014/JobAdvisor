@@ -19,8 +19,10 @@ def show_uploaded():
             file = request.files['file'] # variable 'file' is exactly the file
             filename = 'uploaded_resume'
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-            # result_matched = resume_matching.init('elasticsearch')
-            return  render_template('result.html', file = file)
+            result_matched = subprocess.check_output(['python -m resume_matching'], shell = True)
+            print (type(result_matched))
+            print (result_matched)
+            return  render_template('result.html', result = result_matched)
 		
 if __name__ == '__main__':
    app.run(debug = True)

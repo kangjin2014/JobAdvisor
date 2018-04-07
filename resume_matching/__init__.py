@@ -10,12 +10,13 @@ def init(mode):
     
     lf = rm.LoadFiles()
     df_skills = lf.load_skills_dict('data/key_skill.csv')  
-    resume  = lf.load_resume('/tmp/uploaded_resume.docx')
+    resume  = lf.load_resume('/tmp/uploaded_resume')
     df_skills = rm.prep_skills_dict(df_skills)
 
     if mode == 'elasticsearch':
         frequency_keywords_in_resume = rm.count_keywords_in_text(resume, df_skills, mode= mode)
-        ef.es_match('data scientist', str(frequency_keywords_in_resume))
+        matched_result = ef.es_match('data scientist', str(frequency_keywords_in_resume))
+        return matched_result
 
     if mode == 'batch':
         df_jobs = lf.load_jobs('data/ds.csv')
@@ -25,5 +26,3 @@ def init(mode):
                                                                 axis = 1).sort_values(ascending = False)                                                             
         df_recommend = df_jobs.loc[list_cosine_similarity.index][0:10]
         print ('The jobs recommended to you are {}'.format(df_recommend))
-
-    return df_recommend.head(3)
