@@ -16,5 +16,6 @@ flaskr/blueprints/flaskr.py
 flaskr/static/style.css
 flaskr/templates/layout.html
 flaskr/templates/login.html
+flaskr/templates/result.html
 flaskr/templates/show_entries.html
 flaskr/templates/upload.html
