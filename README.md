@@ -34,4 +34,4 @@ http://35.192.74.53:5000
 ## Developed by Ryan, Ying, Henry :koala: 
 
 :link:(www.weclouddata.com)
-:link:(dare2ai.wordpress.com)
+:link:(http://dare2ai.wordpress.com)
