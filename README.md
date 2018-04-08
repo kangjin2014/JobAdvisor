@@ -15,11 +15,11 @@
 
 3. Kick off job posting download, streaming the data into elasticsearch server.
         
-       $ python -m indeed_scraping
+       $ python3 -m indeed_scraping
 
 4. Spin up a Flask web server running at port 5010, localhost. It will accept the resume from end users
     
-       $ python -m flaskr
+       $ python3 -m flaskr
        
        open the address http://localhost:5010 in the browser
        
