@@ -1,8 +1,12 @@
 # Job_Recommender
 
 ![alt text](https://dare2ai.files.wordpress.com/2018/03/screen-shot-2018-03-19-at-11-44-30-pm.png?w=1278)
+    
+## Demo (if you are too lazy to go through 'How to run?')
+    
+http://35.192.74.53:5000
 
-### How to run?
+## How to run?
 
 1. Download git and install packages
 
@@ -26,11 +30,6 @@
        submit the resume by pressing the 'submit' button (support *.doc or *.docx files only)
        
        And will see some recommendation. My suggestion on reference value is based on a small sample study. Will need to impove by machine learning in the future.
-
-    
-## Demo (if you are too lazy to go through 'How to run?')
-    
-http://35.192.74.53:5000 
 
 ## Developed by Ryan, Ying, Henry :koala: 
 
