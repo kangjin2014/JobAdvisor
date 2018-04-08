@@ -24,14 +24,12 @@
        
        submit the resume by pressing the 'submit' button (support *.doc or *.docx files only)
        
-       And will see the result!
+       And will see some recommendation. My suggestion on reference value is based on a small sample study. Will need to impove by machine learning in the future.
 
-
-## Infastructure
     
-## Demo
+## Demo (if you are too lazy to go through 'How to run?')
     
-
+http://35.192.74.53:5000 
 
 ## Developed by Ryan, Ying, Henry :koala: 
 
