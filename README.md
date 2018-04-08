@@ -34,6 +34,4 @@ http://35.192.74.53:5000
 ## Developed by Ryan, Ying, Henry :koala: 
 
 :link:(www.weclouddata.com)
-
-- [x] job_parser (an adds-on function to pull resume from Indeed, however, got banned easily.)
-
+:link:(http://dare2ai.wordpress.com)
