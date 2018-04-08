@@ -21,11 +21,11 @@ http://35.192.74.53:5000
         
        $ python3 -m indeed_scraping
 
-4. Spin up a Flask web server running at port 5010, localhost. It will accept the resume from end users
+4. Spin up a Flask web server which accepts the resume from end users
     
        $ python3 -m flaskr
        
-       open the address http://localhost:5010 in the browser
+       open the address http://localhost:5000 in the browser
        
        submit the resume by pressing the 'submit' button (support *.doc or *.docx files only)
        
