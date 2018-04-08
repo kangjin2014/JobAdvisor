@@ -1,1 +1,4 @@
-{{result}}
+{% for item in result['hits']['hits'] %}
+    {{item['_source']}}
+{% endfor %}
+<!-- {{result}} -->
