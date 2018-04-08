@@ -1,11 +1,11 @@
 from datetime import datetime
 from elasticsearch import Elasticsearch
 
-def es_write(title, company, description, job_id):
+def es_write(title, company, description, job_id, link):
     
     es = Elasticsearch()
     
-    doc = {'title': title,'company': company,'description': description,'id':job_id}
+    doc = {'title': title,'company': company,'description': description,'id':job_id, 'link':link}
     
     es.index(index = "job", 
              doc_type = 'text',

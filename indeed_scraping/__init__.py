@@ -37,6 +37,7 @@ def init(kw_title, kw_location, kw_province):
             ef.es_write(title = jobtitle, 
                         company = company, 
                         description = description, 
-                        job_id = ctr)
+                        job_id = ctr,
+                        link = link)
 
             print ('-- Captured {} job postings --'.format(ctr))
