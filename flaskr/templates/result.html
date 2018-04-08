@@ -1,0 +1,13 @@
+<img src="https://weclouddata.com/wp-content/uploads/2017/03/Screen-Shot-2016-11-15-at-10.11.42-PM.png" alt="weclouddata"
+style="width:500px;height:150px;">
+
+<h1> We found following jobs for you, according to the matching score on the keywords. </h1>
+<h2>
+<p> Reference value </p>
+<p> Score > 30 : the described job highly matches your skillset presented in the resume </p>
+<p> Score < 10 : the chance that the resume being considered is low </p>
+</h2>
+{% for item in result['hits']['hits'] %}
+  <p> {{item['_score']}} {{item['_source']}} </p>
+{% endfor %}
+<!-- {{result}} -->

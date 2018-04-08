@@ -1,51 +1,39 @@
 # Job_Recommender
 
 ![alt text](https://dare2ai.files.wordpress.com/2018/03/screen-shot-2018-03-19-at-11-44-30-pm.png?w=1278)
+    
+## Demo (if you are too lazy to go through 'How to run?')
+    
+http://35.192.74.53:5000
 
-### How to run?
+## How to run?
 
-1. Download
+1. Download git and install packages
 
        $ git clone https://github.com/kangjin2014/job_recommender.git -b devops
-
-1. Spin up a Flask web server running at port 5010, localhost. It will accept the resume from end users
-
-       $ chmod +x bin/run_flask.sh
-    
-       $ bin/run_flask.sh
+       $ pip3 install -r requirements.txt
        
-2. Submit the resume from end user.
+2. Spin up an ElasticSearch database running at port 9200, localhost. Job postings scraped from Indeed will be streamed in. Notice: docker should be installed. 
+       
+       $ bin/run_elasticsearch.sh
 
+3. Kick off job posting download, streaming the data into elasticsearch server.
+        
+       $ python3 -m indeed_scraping
+
+4. Spin up a Flask web server running at port 5010, localhost. It will accept the resume from end users
+    
+       $ python3 -m flaskr
+       
        open the address http://localhost:5010 in the browser
        
        submit the resume by pressing the 'submit' button (support *.doc or *.docx files only)
        
-3. Spin up an ElasticSearch database running at port 9200, localhost. Job postings scraped from Indeed will be streamed in. Notice: docker should be installed. 
-
-       $ chmod +x bin/run_elasticsearch.sh
-       
-       $ bin/run_elasticsearch.sh
-       
-       open the address http://localhost:9200 in the browser
-
-3. Run job matching module - This job will kick off two jobs: 1. download job postings from Indeed. 2. Matching the job with the resume submitted by the user # still working on this
-
-       $ python -m job_matching
-
-## Infastructure
-    
-## Output
-    
-> {
-    
-}
-
-## Installation/Operation instruction
-
-    $ 
+       And will see some recommendation. My suggestion on reference value is based on a small sample study. Will need to impove by machine learning in the future.
 
 ## Developed by Ryan, Ying, Henry :koala: 
 
 :link:(www.weclouddata.com)
 
 - [x] job_parser (an adds-on function to pull resume from Indeed, however, got banned easily.)
+
