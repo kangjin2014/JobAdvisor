@@ -7,7 +7,7 @@
 1. Download git and install packages
 
        $ git clone https://github.com/kangjin2014/job_recommender.git -b devops
-       $ pip install -r requirements.txt
+       $ pip3 install -r requirements.txt
        
 2. Spin up an ElasticSearch database running at port 9200, localhost. Job postings scraped from Indeed will be streamed in. Notice: docker should be installed. 
        
