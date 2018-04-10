@@ -6,7 +6,7 @@
     
 http://35.192.74.53:5000
 
-if you dont have resume handy. download the files in the 'sample_resumes' folder to test this web out.
+If you dont have resume handy, please download the resumes in the 'sample_resumes' folder to test this web out.
 
 ## How to run?
 
