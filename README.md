@@ -5,7 +5,7 @@
 ## Demo (if you are too lazy to go through 'How to run?')
     
 http://35.192.74.53:5000
-submit your resumes.
+
 if you dont have resume handy. download the files in the 'sample_resumes' folder to test this web out.
 
 ## How to run?
