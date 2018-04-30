@@ -4,7 +4,7 @@
     
 ## Demo (if you are too lazy to go through 'How to run?')
     
-http://35.192.74.53:5000 (I shut down the website temporarily )
+http://35.192.216.253:5000
 
 If you dont have resume handy, please download the resumes in the 'sample_resumes' folder to test this web out.
 
