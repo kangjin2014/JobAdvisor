@@ -1,16 +1,18 @@
-# Job_Recommender
+# Job Advisor
 
 ![alt text](https://dare2ai.files.wordpress.com/2018/03/screen-shot-2018-03-19-at-11-44-30-pm.png?w=1278)
     
 ## Demo (if you are too lazy to go through 'How to run?')
     
-http://35.192.74.53:5000
+http://35.192.216.253:5000
+
+If you dont have resume handy, please download the resumes in the 'sample_resumes' folder to test this web out.
 
 ## How to run?
 
 1. Download git and install packages
 
-       $ git clone https://github.com/kangjin2014/job_recommender.git -b devops
+       $ git clone https://github.com/kangjin2014/job_advisor.git -b devops
        $ pip3 install -r requirements.txt
        
 2. Spin up an ElasticSearch database running at port 9200, localhost. Job postings scraped from Indeed will be streamed in. Notice: docker should be installed. 
