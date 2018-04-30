@@ -1,0 +1,15 @@
+<!-- <img src="https://weclouddata.com/wp-content/uploads/2017/03/Screen-Shot-2016-11-15-at-10.11.42-PM.png" alt="weclouddata"
+style="width:500px;height:150px;"> -->
+
+<h1> Recommended Jobs </h1> Score > 30 : highly matched ; Score < 10 : highly unmatched 
+<br />
+<br />
+    
+{% for item in result['hits']['hits'] %}
+  <p> <h3> {{item['_source']['title']}} </h3>
+  <p> {{item['_source']['company']}} 
+  <p> Score: {{item['_score']}}
+  <p> <a href= {{item['_source']['link']}}> to apply </a>
+<!--   <p> {{item['_source']['description']}} -->
+{% endfor %}
+<!-- {{result}} -->

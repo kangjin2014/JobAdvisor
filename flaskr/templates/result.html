@@ -1,15 +1,189 @@
-<!-- <img src="https://weclouddata.com/wp-content/uploads/2017/03/Screen-Shot-2016-11-15-at-10.11.42-PM.png" alt="weclouddata"
-style="width:500px;height:150px;"> -->
+{% extends "layout.html" %}
+{% block body %}
+  <head>
 
-<h1> Recommended Jobs </h1> Score > 30 : highly matched ; Score < 10 : highly unmatched 
-<br />
-<br />
-    
-{% for item in result['hits']['hits'] %}
-  <p> <h3> {{item['_source']['title']}} </h3>
-  <p> {{item['_source']['company']}} 
-  <p> Score: {{item['_score']}}
-  <p> <a href= {{item['_source']['link']}}> to apply </a>
-<!--   <p> {{item['_source']['description']}} -->
-{% endfor %}
-<!-- {{result}} -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Amazon Recommendation System</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}"  rel="stylesheet">
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+  </head>
+
+  <body>
+	  
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">JOB ADVISOR BY RYAN</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/kangjin2014">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading -->
+        <small></small>
+      </h1>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+		  <a href={{entry_0_product_link}}><img class="card-img-top" src={{entry_0_img}} alt=""></a>
+            <div class="card-body">
+              <h5 class="card-title">
+		      {{entry_0_title}}
+              </h5>
+	      <p class="card-text">${{entry_0_price}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+		  <a href={{entry_1_product_link}} ><img class="card-img-top" src={{entry_1_img}} alt=""></a>
+            <div class="card-body">
+              <h5 class="card-title">
+		      {{entry_1_title}}
+              </h5>
+	      <p class="card-text">${{entry_1_price}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+		  <a href={{entry_2_product_link}}><img class="card-img-top" src={{entry_2_img}} alt=""></a>
+            <div class="card-body">
+              <h5 class="card-title">
+		      {{entry_2_title}}
+              </h5>
+	      <p class="card-text">${{entry_2_price}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+		  <a href={{entry_3_product_link}}><img class="card-img-top" src={{entry_3_img}}></a>
+            <div class="card-body">
+              <h5 class="card-title">
+		      {{entry_3_title}}
+              </h5>
+	      <p class="card-text">${{entry_3_price}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+		  <a href={{entry_4_product_link}}><img class="card-img-top" src={{entry_4_img}}></a>
+            <div class="card-body">
+              <h5 class="card-title">
+		      {{entry_4_title}}
+              </h5>
+	      <p class="card-text">${{entry_4_price}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+		  <a href={{entry_5_product_link}}><img class="card-img-top" src={{entry_5_img}}></a>
+            <div class="card-body">
+              <h5 class="card-title">
+		      {{entry_5_title}}
+              </h5>
+	      <p class="card-text">${{entry_5_price}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+		  <a href={{entry_6_product_link}}><img class="card-img-top" src={{entry_6_img}}></a>
+            <div class="card-body">
+              <h5 class="card-title">
+		      {{entry_6_title}}
+              </h5>
+	      <p class="card-text">${{entry_6_price}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+		  <a href={{entry_7_product_link}}><img class="card-img-top" src={{entry_7_img}}></a>
+            <div class="card-body">
+              <h5 class="card-title">
+		      {{entry_7_title}}
+              </h5>
+	      <p class="card-text">${{entry_7_price}}</p>
+            </div>
+          </div>
+        </div>
+      <!-- /.row -->
+
+      <!-- Pagination -->
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="http://35.225.102.192:5000/">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="http://35.225.102.192:5000/">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="http://35.225.102.192:5000/">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="http://35.225.102.192:5000/" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">&copy; Ryan Kang @WeCloudData 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+  </body>
+  </ul>
+{% endblock %}
