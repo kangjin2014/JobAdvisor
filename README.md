@@ -1,6 +1,6 @@
 # Job Advisor (INACTIVE)
 
-Web scrapping code subjects to the changes of indeed pages. Hence I think the project won't work unless you upgrade the web scraping code. However, the general idea of this project is to use webscraping to collect data, to use elasticsearch as database and matching backend, and use flask as a simple front-end to allow file submission.
+Web scrapping code subjects to the changes of indeed pages. Hence I think the web scraping code no longer work unless you upgrade that accordingly and continuously. On the flip side, I want to address that, the general idea of this project is to use webscraping to collect data, to use elasticsearch as database and matching backend, and to use flask as a simple front-end to allow file submission. It gives an example of building an end-to-end data related app using purely python.
 
 
 ![alt text](https://dare2ai.files.wordpress.com/2018/03/screen-shot-2018-03-19-at-11-44-30-pm.png?w=1278)
