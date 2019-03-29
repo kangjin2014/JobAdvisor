@@ -1,6 +1,6 @@
 # Job Advisor (INACTIVE)
 
-Web scrapping code subjects to the changes of indeed pages. Hence I think the project won't work unless you upgrade the web scraping code. However, the general idea of this project is to use webscraping to collect data and to use elasticsearch as database and matching backend.
+Web scrapping code subjects to the changes of indeed pages. Hence I think the project won't work unless you upgrade the web scraping code. However, the general idea of this project is to use webscraping to collect data, to use elasticsearch as database and matching backend, and use flask as a simple front-end to allow file submission.
 
 
 ![alt text](https://dare2ai.files.wordpress.com/2018/03/screen-shot-2018-03-19-at-11-44-30-pm.png?w=1278)
