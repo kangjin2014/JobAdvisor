@@ -1,17 +1,22 @@
 <!doctype html>
-<title>Flaskr</title>
+<title>Ryan Kang</title>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
 <div class="page">
-  <h1>Flaskr</h1>
   <div class="metanav">
-  {% if not session.logged_in %}
-    <a href="{{ url_for('flaskr.login') }}">log in</a>
-  {% else %}
-    <a href="{{ url_for('flaskr.logout') }}">log out</a>
-  {% endif %}
-  </div>
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
+  <style>
+  #recommendation {
+    background-color: white;
+    width: 1107px;
+    border: 1px solid lightgrey;
+    padding: 60px;
+    margin: 25px;
+   }
+  #recom {
+    margin: 0 3px;
+  }
+  </style>
   {% block body %}{% endblock %}
 </div>
